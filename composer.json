@@ -1,0 +1,45 @@
+{
+    "name": "vdhicts/http-query-builder",
+    "description": "Replacement of http_build_query to allow the same parameter multiple times ",
+    "keywords": [
+        "http_build_query",
+        "query"
+    ],
+    "homepage": "https://github.com/vdhicts/http-query-builder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dick van der Heiden",
+            "email": "info@vdhicts.nl",
+            "homepage": "https://www.vdhicts.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "vimeo/psalm": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vdhicts\\HttpQueryBuilder\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vdhicts\\HttpQueryBuilder\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --no-coverage",
+        "test-coverage": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/psalm"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
