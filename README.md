@@ -1,14 +1,12 @@
 # http-query-builder
 
-Replacement of http_build_query to allow the same parameter multiple times.
+Replacement of `http_build_query` to allow the same parameter multiple times.
 
 ## Requirements
 
-This package requires PHP 7.4 or higher.
+This package requires PHP 8.3 or higher.
 
 ## Installation
-
-This package can be used in any PHP project or with any framework.
 
 You can install the package via composer:
 
@@ -16,8 +14,8 @@ You can install the package via composer:
 
 ## Usage
 
-The problem with the build-in `http_build_query` method is that it doesn't accept the same parameter multiple times. 
-When you need to consume an API that uses those parameters (for example [FastAPI](https://fastapi.tiangolo.com/) 
+The problem with the build-in `http_build_query` method is that it doesn't accept the same parameter multiple times as 
+it overwrites the key in the array. When you need to consume an API that uses those parameters (for example [FastAPI](https://fastapi.tiangolo.com/) 
 supports it), this package comes in handy.
 
 ### Getting started
@@ -25,37 +23,31 @@ supports it), this package comes in handy.
 ```php
 use Vdhicts\HttpQueryBuilder\Builder;
 
-$builder = (new Builder())
+$builder = Builder::make()
     ->add('filter', 'a:1')
     ->add('filter', 'b:2');
 echo $builder; // filter=a%3A1&filter=b%3A2
 ```
 
-## Tests
+## Contributing
 
-Unit tests are available in the `tests` folder. Run with:
+Found a bug or want to add a new feature? Great! There are also many other ways to make meaningful contributions such
+as reviewing outstanding pull requests and writing documentation. Even opening an issue for a bug you found is
+appreciated.
 
-`composer test`
+When you create a pull request, make sure it is tested, following the code standard (run `composer code-style:fix` to
+take care of that for you) and please create one pull request per feature. In exchange, you will be credited as
+contributor.
 
-When you want a code coverage report which will be generated in the `build/report` folder. Run with:
+### Testing
 
-`composer test-coverage`
+To run the tests, you can use the following command:
 
-## Contribution
+```bash
+composer test
+```
 
-Any contribution is welcome, but it should meet the PSR-2 standard and please create one pull request per feature/bug.
-In exchange, you will be credited as contributor on this page.
+### Security
 
-## Security
-
-If you discover any security related issues in this or other packages of Vdhicts, please email info@vdhicts.nl instead
-of using the issue tracker.
-
-## License
-
-This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
-## About Vdhicts
-
-[Vdhicts](https://www.vdhicts.nl) is the name of my personal company for which I work as freelancer. Vdhicts develops
-and implements IT solutions for businesses and educational institutions.
+If you discover any security related issues in this or other packages of Vdhicts!, please email security@vdhicts.nl
+instead of using the issue tracker.

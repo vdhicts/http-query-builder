@@ -2,36 +2,49 @@
 
 namespace Vdhicts\HttpQueryBuilder;
 
-class Builder
-{
-    private array $parameters = [];
+use Stringable;
 
-    public function get(): array
-    {
-        return $this->parameters;
+class Builder implements Stringable
+{
+    /**
+     * @param array<Parameter> $parameters
+     */
+    public function __construct(
+        public array $parameters = [],
+    ) {
     }
 
-    public function add(string $parameter, string $value): Builder
+    /**
+     * @param array<Parameter> $parameters
+     */
+    public static function make(array $parameters = []): self
     {
-        $this->parameters[] = new Parameter($parameter, $value);
+        return new self($parameters);
+    }
+
+    public function add(string $parameter, int|string $value): Builder
+    {
+        $this->parameters[] = new Parameter(
+            key: $parameter,
+            value: $value,
+        );
 
         return $this;
     }
 
-    public function build(): string
+    public function toString(): string
     {
-        $queryParameters = array_map(
-            function (Parameter $parameter) {
-                return $parameter->build();
-            },
-            $this->parameters
+        return implode(
+            separator: '&',
+            array: array_map(
+                static fn (Parameter $parameter) => $parameter->toString(),
+                $this->parameters,
+            ),
         );
-
-        return implode('&', $queryParameters);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->build();
+        return $this->toString();
     }
 }
