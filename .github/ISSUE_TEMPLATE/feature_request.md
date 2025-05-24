@@ -1,15 +1,14 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Suggest an idea for this package
 title: ""
 labels: feature
-assignees: vdhicts
-
+assignees: dvdheiden
 ---
 
 ## Goal
 
-A clear and concise description of what the problem is. Ex. I think this could be easier when...
+A clear and concise description of which "problem" you want to get solved. Ex. I think this could be easier when...
 
 ## Additional information
 

@@ -6,8 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 cluster API. See the changelog of the [cluster API](https://cluster-api.cyberfusion.nl/redoc#section/Changelog) for
 detailed information.
 
+## [2.0.0]
+
+### Added
+
+- Add support for PHP 8.3+ and modernize code.
+- Add test for parameters.
+- Add PHPStan for static analysis.
+- Add Pint for code style checks/enforcement.
+- Add implementation of the `Stringable` interface.
+
+### Changed
+
+- Updated dependencies to their latest versions.
+
+### Removed
+
+- Remove psalm in favor of Pint.
+
 ## [1.0.0]
 
-### [Added]
+### Added
 
 - Add initial version of the package

@@ -2,38 +2,27 @@
 
 namespace Vdhicts\HttpQueryBuilder;
 
-class Parameter
+use Stringable;
+
+class Parameter implements Stringable
 {
-    private string $key;
-    private string $value;
-
-    public function __construct(string $key, string $value)
-    {
-        $this->key = $key;
-        $this->value = $value;
+    public function __construct(
+        public string $key,
+        public int|string $value
+    ) {
     }
 
-    public function getKey(): string
-    {
-        return $this->key;
-    }
-
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-
-    public function build(): string
+    public function toString(): string
     {
         return sprintf(
             '%s=%s',
             urlencode($this->key),
-            urlencode($this->value)
+            urlencode((string) $this->value)
         );
     }
 
     public function __toString(): string
     {
-        return $this->build();
+        return $this->toString();
     }
 }
