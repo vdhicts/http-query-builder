@@ -32,6 +32,11 @@ class Builder implements Stringable
         return $this;
     }
 
+    public function build(): string
+    {
+        return $this->toString();
+    }
+
     public function toString(): string
     {
         return implode(
