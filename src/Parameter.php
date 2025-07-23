@@ -12,6 +12,11 @@ class Parameter implements Stringable
     ) {
     }
 
+    public function build(): string
+    {
+        return $this->toString();
+    }
+
     public function toString(): string
     {
         return sprintf(
